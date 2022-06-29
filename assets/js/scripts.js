@@ -101,7 +101,7 @@ function loadStyle(href, callback) {
 
 
   /* Default Theme Color, Border Radius and  Direction */
-  var theme = "dore.light.redruby.min.css";
+  var theme = "dore.light.purplemonster.min.css";
   var direction = "ltr";
   var radius = "rounded";
 

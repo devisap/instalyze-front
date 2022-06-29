@@ -24,9 +24,7 @@
         </div>
 
         <a class="navbar-logo" href="Dashboard.Default.html">
-            INSTALYZE
-            <!-- <span class="logo d-none d-xs-block"></span>
-            <span class="logo-mobile d-block d-xs-none"></span> -->
+            <img src="<?= site_url('assets/logos/black.svg')?>" style="max-width: 125px;" alt="">
         </a>
 
         <div class="navbar-right">

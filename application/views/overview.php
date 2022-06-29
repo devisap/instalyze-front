@@ -22,6 +22,32 @@
             <div class="col-md-12 col-sm-12 mb-4">
                 <div class="card mb-4">
                     <div class="card-body">
+                        <h5 class="mb-4">Search Data</h5>
+                        <div class="mb-2">Hashtag</div>
+                        <input class="mb-4" data-role="tagsinput" type="text">
+                        <div class="mb-2 mt-4">Date</div>
+                        <!-- <div class="input-daterange input-group" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="start" placeholder="Start">
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="input-sm form-control" name="end" placeholder="End">
+                        </div> -->
+                        <div class="input-group">
+                            <input type="text" class="form-control text-center" value="<?= date('j F Y')?>" name="start" placeholder="Start" disabled>
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="pickerDate form-control text-center" name="end" placeholder="End">
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="mb-4">Current Search</h5>
+                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #95c940;">#cristiano</span>
+                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #094d38;">#messi</span>
+                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #4c1f8f;">#gonzales</span>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
                         <h5 class="mb-4">Total Post</h5>
 
                         <div class="chart card-body px-0 mb-4">
@@ -240,6 +266,7 @@
     </div>
 </main>
 <script> 
+    
     function hexToRgbA(hex){
         var c;
         if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){

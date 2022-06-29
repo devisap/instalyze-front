@@ -33,11 +33,18 @@
     <script src="<?= site_url('assets')?>/js/vendor/jquery.barrating.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/select2.full.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/nouislider.min.js"></script>
-    <script src="<?= site_url('assets')?>/js/vendor/bootstrap-datepicker.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/Sortable.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/mousetrap.min.js"></script>
     <script src="<?= site_url('assets')?>/js/dore.script.js"></script>
+    <script src="<?= site_url('assets')?>/js/vendor/bootstrap-tagsinput.min.js"></script>
     <script src="<?= site_url('assets')?>/js/scripts.js"></script>
+    <script>
+        $('.pickerDate').datepicker({
+            format: 'd MM yyyy',
+            startDate: "-7d",
+            endDate: "0d"
+        })
+    </script>
 </body>
 
 </html>
