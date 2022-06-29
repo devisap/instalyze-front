@@ -27,7 +27,6 @@
     
     <script src="<?= site_url('assets')?>/js/vendor/moment.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/fullcalendar.min.js"></script>
-    <script src="<?= site_url('assets')?>/js/vendor/datatables.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/perfect-scrollbar.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/glide.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/progressbar.min.js"></script>

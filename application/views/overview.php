@@ -179,6 +179,63 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12 col-sm-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-5">Hashtag most used</h5>
+                        <span class="mb-4" style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #95c940;">#cristiano</span>
+                        <div class="mb-4 mt-4">
+                            <p class="mb-2">#football
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">#fun
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">#business
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #094d38;">#messi</span>
+                        <div class="mb-4 mt-4">
+                            <p class="mb-2">#football
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">#fun
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">#business
+                                <span class="float-right text-muted">12/18</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
