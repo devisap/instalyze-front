@@ -53,4 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['overview'] = 'MainController/overview';
+$route['overview']      = 'MainController/overview';
+$route['top-post']      = 'MainController/topPost';
+$route['influencer']    = 'MainController/influencer';

@@ -132,7 +132,7 @@
                                 <div class="glide__slide glide__slide--active">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <i class="iconsminds-speach-bubble-dialog"></i>
+                                            <i class="iconsminds-speach-bubble-11"></i>
                                             <p class="card-text mb-0">Total Comment</p>
                                             <p class="lead text-center">16</p>
                                         </div>
@@ -168,7 +168,7 @@
                                 <div class="glide__slide glide__slide--active">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <i class="iconsminds-speach-bubble-dialog"></i>
+                                            <i class="iconsminds-speach-bubble-11"></i>
                                             <p class="card-text mb-0">Total Comment</p>
                                             <p class="lead text-center">16</p>
                                         </div>
