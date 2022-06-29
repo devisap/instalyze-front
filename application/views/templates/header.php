@@ -26,4 +26,6 @@
 
     <script src="<?= site_url('assets')?>/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?= site_url('assets')?>/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="<?= site_url('assets')?>/js/vendor/Chart.bundle.min.js"></script>
+    <script src="<?= site_url('assets')?>/js/vendor/chartjs-plugin-datalabels.js"></script>
 </head>

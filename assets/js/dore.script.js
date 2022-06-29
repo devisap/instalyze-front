@@ -999,6 +999,25 @@ $.dore = function (element, options) {
                   align: "end",
                   anchor: "end"
                 }
+              },
+              {
+                label: "Data",
+                borderColor: themeColor1,
+                pointBorderColor: themeColor1,
+                pointBackgroundColor: themeColor1,
+                pointHoverBackgroundColor: themeColor1,
+                pointHoverBorderColor: themeColor1,
+                pointRadius: 3,
+                pointBorderWidth: 3,
+                pointHoverRadius: 3,
+                fill: true,
+                backgroundColor: themeColor1_10,
+                borderWidth: 2,
+                data: [180, 140, 150, 120, 180, 110, 160],
+                datalabels: {
+                  align: "end",
+                  anchor: "end"
+                }
               }
             ]
           },
