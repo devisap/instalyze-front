@@ -41,7 +41,7 @@
                                 </label>
                                 <div class="">
                                     <!-- <a href="#">Forget password?</a> -->
-                                    <a href="<?= site_url('overview')?>" class="btn btn-primary btn-lg btn-shadow" style="float: right;">LOGIN</a>
+                                    <a href="<?= site_url('overview')?>" class="btn btn-primary btn-sm btn-shadow" style="float: right;">LOGIN</a>
                                 </div>
                             </form>
                         </div>
