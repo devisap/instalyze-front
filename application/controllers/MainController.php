@@ -6,6 +6,21 @@ class MainController extends CI_Controller{
         parent::__construct();
     }
     public function overview(){
+        $client     = new GuzzleHttp\Client();
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+
+        $userDatasets = json_decode($response->getBody());
+        $data['hashtags'] = [];
+        $index = 0;
+        foreach ($userDatasets as $userDataset) {
+            $data['hashtags'][$index]['tag']        = $userDataset->HASHTAG_UD;
+            $data['hashtags'][$index]['color']      = $userDataset->COLOR_UD;
+            $data['hashtags'][$index]['totPost']    = $userDataset->TOTPOST_DATASET;
+            $data['hashtags'][$index]['totLike']    = $userDataset->TOTLIKE_DATASET;
+            $data['hashtags'][$index]['totComment'] = $userDataset->TOTCOMMENT_DATASET;
+            $index++;
+        }
+
         $data['title']      = 'Overview';
         $data['sidebar']    = 'overview';
         
