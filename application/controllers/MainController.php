@@ -1,4 +1,6 @@
 <?php
+require 'vendor/autoload.php';
+use GuzzleHttp\Client;
 class MainController extends CI_Controller{
     function __construct(){
         parent::__construct();
@@ -14,8 +16,13 @@ class MainController extends CI_Controller{
         $this->load->view('templates/footer');
     }
     public function topPost(){
+        $client     = new GuzzleHttp\Client();
+        $response   = $client->get('http://127.0.0.1:5000/posts/aksicepattanggap');
+        $posts      = json_decode($response->getBody());
+
         $data['title']      = 'Top Post';
         $data['sidebar']    = 'top-post';
+        $data['posts']      = $posts;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
@@ -32,5 +39,16 @@ class MainController extends CI_Controller{
         $this->load->view('templates/sidebar', $data);
         $this->load->view('influencer', $data);
         $this->load->view('templates/footer');
+    }
+    public function tes(){
+        $client = new GuzzleHttp\Client();
+        $response = $client->get('http://127.0.0.1:5000/tes');
+        // $data = $response->getBody()->getContents();
+        $data = json_decode($response->getBody());
+        print_r($data);
+        // foreach ($data as $item) {
+        //     print_r($item->HASHTAG_DATASET);
+            # code...
+        // }
     }
 }

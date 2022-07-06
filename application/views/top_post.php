@@ -51,103 +51,43 @@
                     </div>
                 </div>
                 <div class="row list disable-text-selection" data-check-all="checkAll">
-                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 mb-4">
+                    <?php
+                        foreach ($posts as $post) {
+                    ?>
+                        <div class="col-xl-6 col-lg-6 col-12 col-sm-12 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row mb-3">
+                                        <a href="#">
+                                            <img src="http://127.0.0.1:5000/upload-profile/<?= $post->SHORTCODE_DD?>.jpg" alt="" class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall">
+                                        </a>
+                                        <div class="pl-3">
+                                            <a href="https://instagram.com/<?= $post->USERNAME_DD?>" target="_blank">
+                                                <p class="font-weight-medium mb-0 "><?= $post->FULLNAME_DD?></p>
+                                                <p class="text-muted mb-0 text-small"><?= date_format(date_create($post->TAKENAT_DD), 'd.m.Y - H:i')?></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <?= $post->CAPTION_DD ?>
+                                    </div>
+                                    <a href="http://127.0.0.1:5000/upload-post/<?= $post->SHORTCODE_DD?>.jpg" class="lightbox mt-3">
+                                        <img class="img-fluid border-0 border-radius mb-3" src="http://127.0.0.1:5000/upload-post/<?= $post->SHORTCODE_DD?>.jpg">
+                                    </a>
+                                    <div>
+                                        <div class="post-icon mr-3 d-inline-block"><a href="#"><i class="iconsminds-like mr-1"></i></a> <span><?= number_format($post->COUNTLIKE_DD)?>
+                                                Likes</span></div>
+                                        <div class="post-icon d-inline-block"><i class="iconsminds-speach-bubble-11 mr-1"></i> <span><?= number_format($post->COUNTCOMMENT_DD)?>
+                                                Comments</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-row mb-3">
-                                    <a href="#">
-                                        <img src="<?= site_url('assets')?>/img/profiles/l-1.jpg" alt="Mayra Sibley" class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall">
-                                    </a>
-                                    <div class="pl-3">
-                                        <a href="#">
-                                            <p class="font-weight-medium mb-0 ">Mayra Sibley</p>
-                                            <p class="text-muted mb-0 text-small">09.08.2018 - 12:45</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p>
-                                    Podcasting operational change management inside of workflows to
-                                    establish a framework. Taking seamless key performance indicators
-                                    offline to maximise the long tail. Keeping your eye on the ball while
-                                    performing a deep dive on the start-up mentality.
-                                </p>
-                                <a href="<?= site_url('assets')?>/img/details/5.jpg" class="lightbox">
-                                    <img class="img-fluid border-0 border-radius mb-3" src="<?= site_url('assets')?>/img/details/5.jpg">
-                                </a>
-                                <div>
-                                    <div class="post-icon mr-3 d-inline-block"><a href="#"><i class="iconsminds-like mr-1"></i></a> <span>211
-                                            Likes</span></div>
-                                    <div class="post-icon d-inline-block"><i class="iconsminds-speach-bubble-11 mr-1"></i> <span>2
-                                            Comments</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-row mb-3">
-                                    <a href="#">
-                                        <img src="<?= site_url('assets')?>/img/profiles/l-1.jpg" alt="Mayra Sibley" class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall">
-                                    </a>
-                                    <div class="pl-3">
-                                        <a href="#">
-                                            <p class="font-weight-medium mb-0 ">Mayra Sibley</p>
-                                            <p class="text-muted mb-0 text-small">09.08.2018 - 12:45</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p>
-                                    Podcasting operational change management inside of workflows to
-                                    establish a framework. Taking seamless key performance indicators
-                                    offline to maximise the long tail. Keeping your eye on the ball while
-                                    performing a deep dive on the start-up mentality.
-                                </p>
-                                <a href="<?= site_url('assets')?>/img/details/5.jpg" class="lightbox">
-                                    <img class="img-fluid border-0 border-radius mb-3" src="<?= site_url('assets')?>/img/details/5.jpg">
-                                </a>
-                                <div>
-                                    <div class="post-icon mr-3 d-inline-block"><a href="#"><i class="iconsminds-like mr-1"></i></a> <span>211
-                                            Likes</span></div>
-                                    <div class="post-icon d-inline-block"><i class="iconsminds-speach-bubble-11 mr-1"></i> <span>2
-                                            Comments</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-12 col-sm-12 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-row mb-3">
-                                    <a href="#">
-                                        <img src="<?= site_url('assets')?>/img/profiles/l-1.jpg" alt="Mayra Sibley" class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall">
-                                    </a>
-                                    <div class="pl-3">
-                                        <a href="#">
-                                            <p class="font-weight-medium mb-0 ">Mayra Sibley</p>
-                                            <p class="text-muted mb-0 text-small">09.08.2018 - 12:45</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p>
-                                    Podcasting operational change management inside of workflows to
-                                    establish a framework. Taking seamless key performance indicators
-                                    offline to maximise the long tail. Keeping your eye on the ball while
-                                    performing a deep dive on the start-up mentality.
-                                </p>
-                                <a href="<?= site_url('assets')?>/img/details/5.jpg" class="lightbox">
-                                    <img class="img-fluid border-0 border-radius mb-3" src="<?= site_url('assets')?>/img/details/5.jpg">
-                                </a>
-                                <div>
-                                    <div class="post-icon mr-3 d-inline-block"><a href="#"><i class="iconsminds-like mr-1"></i></a> <span>211
-                                            Likes</span></div>
-                                    <div class="post-icon d-inline-block"><i class="iconsminds-speach-bubble-11 mr-1"></i> <span>2
-                                            Comments</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }?>
+                        
+                    ?>
+                    
 
 
                     <div class="col-12">
