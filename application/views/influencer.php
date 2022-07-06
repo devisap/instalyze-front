@@ -23,29 +23,26 @@
                 <div class="row list disable-text-selection" data-check-all="checkAll">
                     <div class="col-xl-12 col-lg-12 col-12 col-sm-12 mb-4">
                         <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="mb-4">Search Data</h5>
+                            <div class="card-header" style="cursor: pointer;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mt-3">Search Data</h5>
+                                    </div>
+                                    <div class="col">
+                                        <i class="iconsminds-arrow-down-in-circle mt-3" style="float: right;font-size: 18px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body collapse" id="collapseExample">
                                 <div class="mb-2">Hashtag</div>
                                 <input class="mb-4" data-role="tagsinput" type="text">
                                 <div class="mb-2 mt-4">Date</div>
-                                <!-- <div class="input-daterange input-group" id="datepicker">
-                                    <input type="text" class="input-sm form-control" name="start" placeholder="Start">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="input-sm form-control" name="end" placeholder="End">
-                                </div> -->
-                                <div class="input-group">
+                                <div class="input-group mb-4">
                                     <input type="text" class="form-control text-center" value="<?= date('j F Y')?>" name="start" placeholder="Start" disabled>
                                     <span class="input-group-addon"></span>
                                     <input type="text" class="pickerDate form-control text-center" name="end" placeholder="End">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="mb-4">Current Search</h5>
-                                <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #95c940;">#cristiano</span>
-                                <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #094d38;">#messi</span>
-                                <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: #4c1f8f;">#gonzales</span>
+                                <button class="btn btn-sm btn-primary btn-lg btn-shadow" style="float: right;">SEARCH</button>
                             </div>
                         </div>
                         <div class="card">

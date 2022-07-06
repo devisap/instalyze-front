@@ -17,12 +17,22 @@ class MainController extends CI_Controller{
     }
     public function topPost(){
         $client     = new GuzzleHttp\Client();
-        $response   = $client->get('http://127.0.0.1:5000/posts/aksicepattanggap');
-        $posts      = json_decode($response->getBody());
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+
+        $userDatasets = json_decode($response->getBody());
+        $data['hashtags'] = [];
+        $index = 0;
+        foreach ($userDatasets as $userDataset) {
+            $data['hashtags'][$index]['tag']      = $userDataset->HASHTAG_UD;
+            $data['hashtags'][$index]['color']    = $userDataset->COLOR_UD;
+            $index++;
+
+            $posts  = $client->get('http://127.0.0.1:5000/posts/'.$userDataset->HASHTAG_UD);
+            $data['posts'][$userDataset->HASHTAG_UD] = json_decode($posts->getBody());
+        }
 
         $data['title']      = 'Top Post';
         $data['sidebar']    = 'top-post';
-        $data['posts']      = $posts;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
