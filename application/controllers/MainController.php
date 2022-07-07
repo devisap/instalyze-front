@@ -18,6 +18,8 @@ class MainController extends CI_Controller{
             $data['hashtags'][$index]['totPost']    = $userDataset->TOTPOST_DATASET;
             $data['hashtags'][$index]['totLike']    = $userDataset->TOTLIKE_DATASET;
             $data['hashtags'][$index]['totComment'] = $userDataset->TOTCOMMENT_DATASET;
+            $data['hashtags'][$index]['created_at'] = $userDataset->created_at;
+            $data['hashtags'][$index]['updated_at'] = $userDataset->updated_at;
             $index++;
         }
 
@@ -29,6 +31,8 @@ class MainController extends CI_Controller{
         $this->load->view('templates/sidebar', $data);
         $this->load->view('overview', $data);
         $this->load->view('templates/footer');
+
+        // print_r($data['hashtags']);
     }
     public function topPost(){
         $client     = new GuzzleHttp\Client();
@@ -65,15 +69,15 @@ class MainController extends CI_Controller{
         $this->load->view('influencer', $data);
         $this->load->view('templates/footer');
     }
-    public function tes(){
+    public function setDataset(){
         $client = new GuzzleHttp\Client();
-        $response = $client->get('http://127.0.0.1:5000/tes');
-        // $data = $response->getBody()->getContents();
-        $data = json_decode($response->getBody());
-        print_r($data);
-        // foreach ($data as $item) {
-        //     print_r($item->HASHTAG_DATASET);
-            # code...
-        // }
+        $response = $client->post('http://127.0.0.1:5000/user-setdataset', [
+            'json' => [
+                'username'  => 'jajang',
+                'hashtag'   => $_POST['hashtag']
+            ]
+        ]);
+
+        redirect($_POST['page']);
     }
 }

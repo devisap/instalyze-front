@@ -56,4 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['overview']      = 'MainController/overview';
 $route['top-post']      = 'MainController/topPost';
 $route['influencer']    = 'MainController/influencer';
-$route['tes']    = 'MainController/tes';
+$route['setdataset']    = 'MainController/setDataset';

@@ -36,13 +36,7 @@
                             <div class="card-body collapse" id="collapseExample">
                                 <div class="mb-2">Hashtag</div>
                                 <input class="mb-4" data-role="tagsinput" type="text">
-                                <div class="mb-2 mt-4">Date</div>
-                                <div class="input-group mb-4">
-                                    <input type="text" class="form-control text-center" value="<?= date('j F Y')?>" name="start" placeholder="Start" disabled>
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="pickerDate form-control text-center" name="end" placeholder="End">
-                                </div>
-                                <button class="btn btn-sm btn-primary btn-lg btn-shadow" style="float: right;">SEARCH</button>
+                                <button class="btn btn-sm btn-primary btn-lg btn-shadow mt-4" style="float: right;">SEARCH</button>
                             </div>
                         </div>
                         <div class="card">

@@ -31,35 +31,59 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body collapse" id="collapseExample">
-                        <div class="mb-2">Hashtag</div>
-                        <input class="mb-4" data-role="tagsinput" type="text">
-                        <div class="mb-2 mt-4">Date</div>
-                        <div class="input-group mb-4">
-                            <input type="text" class="form-control text-center" value="<?= date('j F Y')?>" name="start" placeholder="Start" disabled>
-                            <span class="input-group-addon"></span>
-                            <input type="text" class="pickerDate form-control text-center" name="end" placeholder="End">
+                    <form action="<?= site_url('setdataset')?>" method="POST">
+                        <div class="card-body collapse" id="collapseExample">
+                            <div class="mb-2">Hashtag</div>
+                            <input class="mb-4 form-control" type="text" name="hashtag">
+                            <input class="mb-4" type="hidden" name="page" value="overview">
+                            <button type="submit" class="btn btn-sm btn-primary btn-lg btn-shadow mt-4 mb-4" style="float: right;">SEARCH</button>
                         </div>
-                        <button class="btn btn-sm btn-primary btn-lg btn-shadow" style="float: right;">SEARCH</button>
-                    </div>
+                    </form>
                 </div>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="mb-4">Current Search</h5>
-                        <?php
+                        <h5 class="mb-2">Current Search</h5>
+                        <div class="row mb-4">
+                         <?php
+                            $i = 1;
                             foreach ($hashtags as $hashtag) {
+                                if($i == 5){
+                                    echo '<div class="row mb-2">';
+                                }
+                        ?>                            
+                            
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: <?= $hashtag['color']?>;">#<?= $hashtag['tag']?></span>
+                                        <br>
+                                        <div class="mt-4">
+                                            <i class="iconsminds-clock"></i>
+                                            <?= date_format(date_create($hashtag['created_at']), 'd.m.Y - H:i')?>
+                                        </div>
+                                        <div class="mt-2">
+                                            <i class="iconsminds-clock-forward"></i>
+                                            <?= date_format(date_create($hashtag['updated_at']), 'd.m.Y - H:i')?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php 
+                                if($i == 5){
+                                    echo '<div class="row mb-4">';
+                                    $i = 0;
+                                }
+                                $i++;
+                            }
                         ?>
-                            <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: <?= $hashtag['color']?>;">#<?= $hashtag['tag']?></span>
-                        <?php }?>
+                        </div>
                     </div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="mb-4">Total Post</h5>
-
-                        <!-- <div class="chart card-body px-0 mb-4">
+                        <div class="chart card-body px-0 mb-4" style="height: 10%;">
                             <canvas id="chart_topPosts"></canvas>
-                        </div> -->
+                        </div>
                         
                         <h5 class="mb-4">Total Cumulative Posts</h5>
 
@@ -97,9 +121,9 @@
                     <div class="card-body">
                         <h5 class="mb-4">Total Engagement</h5>
 
-                        <!-- <div class="chart card-body px-0 mb-4">
-                            <canvas id="visitChart"></canvas>
-                        </div> -->
+                        <div class="chart card-body px-0 mb-4">
+                            <canvas id="chart_topEngagement"></canvas>
+                        </div>
                         <?php
                             foreach ($hashtags as $hashtag) {
                         ?>
@@ -144,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 col-sm-12 mb-4">
+            <!-- <div class="col-md-12 col-sm-12 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="mb-5">Hashtag most used</h5>
@@ -200,67 +224,144 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </main>
 <script> 
     
-    // function hexToRgbA(hex){
-    //     var c;
-    //     if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-    //         c= hex.substring(1).split('');
-    //         if(c.length== 3){
-    //             c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-    //         }
-    //         c= '0x'+c.join('');
-    //         return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.5)';
-    //     }
-    //     throw new Error('Bad Hex');
-    // }
+    function hexToRgbABg(hex){
+        var c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.3)';
+        }
+        throw new Error('Bad Hex');
+    }
 
-    // const DATA_COUNT = 7;
-    // const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
+    function hexToRgbA(hex){
+        var c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+        }
+        throw new Error('Bad Hex');
+    }
+    
 
-    // const labels = Utils.months({count: 7});
-//     const data = {
-//         labels: ['tes1', 'tes2'],
-//         datasets: [
-//             {
-//                 label: 'Dataset 1',
-//                 data: 45,
-//                 borderColor: "#674589",
-//                 backgroundColor: "#6745",
-//             },
-//             {
-//                 label: 'Dataset 2',
-//                 data: 89,
-//                 borderColor: "#573825",
-//                 backgroundColor: "#573825",
-//             }
-//         ]
-//     };
+    const data_topPosts = {
+        labels: [
+            <?php
+                foreach ($hashtags as $hashtag) {
+                    echo "'#".$hashtag['tag']."',";
+                }    
+            ?>
+        ],
+        datasets: [
+            {
+                label: 'Chart Post',
+                data: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo $hashtag['totPost'].",";
+                        }    
+                    ?>  
+                ],
+                backgroundColor: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo "hexToRgbABg('".$hashtag['color']."'),";
+                        }    
+                    ?>  
+                ],
+                borderColor: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo "hexToRgbA('".$hashtag['color']."'),";
+                        }    
+                    ?>  
+                ],
+                borderWidth: 1
+            }
+        ]
+    };
+    const data_topEngagement = {
+        labels: [
+            <?php
+                foreach ($hashtags as $hashtag) {
+                    echo "'#".$hashtag['tag']."',";
+                }    
+            ?>
+        ],
+        datasets: [
+            {
+                label: 'Chart Engagement',
+                data: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo ($hashtag['totLike'] + $hashtag['totComment']).",";
+                        }    
+                    ?>  
+                ],
+                backgroundColor: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo "hexToRgbABg('".$hashtag['color']."'),";
+                        }    
+                    ?>  
+                ],
+                borderColor: [
+                    <?php
+                        foreach ($hashtags as $hashtag) {
+                            echo "hexToRgbA('".$hashtag['color']."'),";
+                        }    
+                    ?>  
+                ],
+                borderWidth: 1
+            }
+        ]
+    };
 
-//     const config = {
-//         type: 'line',
-//         data: data,
-//         options: {
-//             responsive: true,
-//             plugins: {
-//                 legend: {
-//                     position: 'top',
-//                 },
-//                 title: {
-//                     display: true,
-//                     text: 'Chart.js Line Chart'
-//                 }
-//             }
-//         },
-//     };
+    const config_topPosts = {
+        type: 'bar',
+        data: data_topPosts,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+    
+    const config_topEngagement = {
+        type: 'bar',
+        data: data_topEngagement,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
 
-//   const chart_topPosts = new Chart(
-//     document.getElementById('chart_topPosts'),
-//     config
-//   );
+    const chart_topPosts = new Chart(
+        document.getElementById('chart_topPosts'),
+        config_topPosts
+    );
+
+    const chart_topEngagement = new Chart(
+        document.getElementById('chart_topEngagement'),
+        config_topEngagement
+    );
 
 </script>
