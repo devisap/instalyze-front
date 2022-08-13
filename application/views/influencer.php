@@ -55,71 +55,47 @@
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-12 col-sm-12 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>List Influencer</h5>
-                                <div class="chart card-body px-0 mb-4">
-                                    <canvas id="visitChart"></canvas>
+                        <div class="tab-content" id="pills-tabContent">
+                            <?php
+                                $first = true;
+                                foreach ($hashtags as $hashtag) {
+                            ?>
+                            <div class="tab-pane fade show <?= $first == true ? 'active' : ''?>" id="<?= $hashtag['tag']?>" role="tabpanel" aria-labelledby="<?= $hashtag['tag']?>-tab">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>List Influencer</h5>
+                                        <div style="text-align: center;" class="chart card-body px-0 mb-4">
+                                            <img src="http://127.0.0.1:5000/upload-graph/<?= $hashtag['graphInfluencer']?>.png" alt="">
+                                        </div>
+                                        <table class="data-table tbl">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Username</th>
+                                                    <th>Accuracy</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $no = 1;
+                                                foreach ($influencers[$hashtag['tag']] as $influencer) {
+                                            ?>
+                                                <tr role="row" class="odd">
+                                                    <td><?= $no++?></td>
+                                                    <td><?= $influencer->USERNAME_INFLUENCER?></td>
+                                                    <td><?= $influencer->ACCURACY_INFLUENCER?></td>
+                                                    <td>
+                                                        <a target="_blank" href="https://instagram.com/<?= $influencer->USERNAME_INFLUENCER?>" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php }?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <table class="data-table tbl">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Username</th>
-                                            <th>Fullname</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="row" class="odd">
-                                            <td>1</td>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-mail-forward"></i></a>
-                                            </td>
-                                            
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>2</td>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-mail-forward"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>3</td>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-mail-forward"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>4</td>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-mail-forward"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>5</td>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-right-1"></i></a>
-                                                <a href="#" class="text-primary" style="font-size: 18px;"><i class="iconsminds-mail-forward"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
+                            <?php $first = false; }?>
                         </div>
                     </div>
                 </div>

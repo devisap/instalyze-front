@@ -67,14 +67,13 @@ class MainController extends CI_Controller{
         $data['hashtags'] = [];
         $index = 0;
         foreach ($userDatasets as $userDataset) {
-            $data['hashtags'][$index]['tag']        = $userDataset->HASHTAG_UD;
-            $data['hashtags'][$index]['color']      = $userDataset->COLOR_UD;
-            $data['hashtags'][$index]['totPost']    = $userDataset->TOTPOST_DATASET;
-            $data['hashtags'][$index]['totLike']    = $userDataset->TOTLIKE_DATASET;
-            $data['hashtags'][$index]['totComment'] = $userDataset->TOTCOMMENT_DATASET;
-            $data['hashtags'][$index]['created_at'] = $userDataset->created_at;
-            $data['hashtags'][$index]['updated_at'] = $userDataset->updated_at;
+            $data['hashtags'][$index]['tag']                = $userDataset->HASHTAG_UD;
+            $data['hashtags'][$index]['graphInfluencer']    = $userDataset->IMGINFLUENCER_UD;
+            $data['hashtags'][$index]['color']              = $userDataset->COLOR_UD;
             $index++;
+
+            $influencers  = $client->get('http://127.0.0.1:5000/influencer/jajang_'.$userDataset->HASHTAG_UD);
+            $data['influencers'][$userDataset->HASHTAG_UD] = json_decode($influencers->getBody());
         }
 
         $data['title']      = 'Influencer';
