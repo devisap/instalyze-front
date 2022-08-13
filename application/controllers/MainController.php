@@ -60,6 +60,23 @@ class MainController extends CI_Controller{
         $this->load->view('templates/footer');
     }
     public function influencer(){
+        $client     = new GuzzleHttp\Client();
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+
+        $userDatasets = json_decode($response->getBody());
+        $data['hashtags'] = [];
+        $index = 0;
+        foreach ($userDatasets as $userDataset) {
+            $data['hashtags'][$index]['tag']        = $userDataset->HASHTAG_UD;
+            $data['hashtags'][$index]['color']      = $userDataset->COLOR_UD;
+            $data['hashtags'][$index]['totPost']    = $userDataset->TOTPOST_DATASET;
+            $data['hashtags'][$index]['totLike']    = $userDataset->TOTLIKE_DATASET;
+            $data['hashtags'][$index]['totComment'] = $userDataset->TOTCOMMENT_DATASET;
+            $data['hashtags'][$index]['created_at'] = $userDataset->created_at;
+            $data['hashtags'][$index]['updated_at'] = $userDataset->updated_at;
+            $index++;
+        }
+
         $data['title']      = 'Influencer';
         $data['sidebar']    = 'influencer';
 

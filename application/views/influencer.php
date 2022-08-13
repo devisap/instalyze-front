@@ -39,18 +39,17 @@
                                 <button class="btn btn-sm btn-primary btn-lg btn-shadow mt-4" style="float: right;">SEARCH</button>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs justify-content-center" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="false">#cristiano</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="true">#messi</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">#gonzales</a>
-                                    </li>
+                                    <?php
+                                        $first = true;
+                                        foreach ($hashtags as $hashtag) {
+                                    ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link <?= $first == true ? 'active' : ''?>" id="<?= $hashtag['tag']?>-tab" data-toggle="pill" href="#<?= $hashtag['tag']?>" role="tab" aria-controls="<?= $hashtag['tag']?>" aria-selected="true">#<?= $hashtag['tag']?></a>
+                                        </li>
+                                    <?php $first = false; }?>
                                 </ul>          
                             </div>
                         </div>
