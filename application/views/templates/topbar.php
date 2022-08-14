@@ -24,7 +24,7 @@
         </div>
 
         <a class="navbar-logo" href="Dashboard.Default.html">
-            <img src="<?= site_url('assets/logos/black.svg')?>" style="max-width: 125px;" alt="">
+            <img src="<?= site_url('assets/logos/black.png')?>" style="max-width: 125px;" alt="">
         </a>
 
         <div class="navbar-right">

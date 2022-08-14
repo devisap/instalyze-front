@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-side">
                             <div class="mb-2 text-center">
-                                <img src="<?= site_url('assets/logos/black.svg')?>" style="max-width: 125px;" alt="">
+                                <img src="<?= site_url('assets/logos/black.png')?>" style="max-width: 125px;" alt="">
                             </div>
                             <h6 class="mb-4">Login</h6>
                             <form action="<?= site_url('login')?>" method="POST" >
