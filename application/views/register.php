@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login - Instalyze</title>
+    <title>Register - Instalyze</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="<?= site_url('assets/logos/logo-simple.svg')?>" />
     <link rel="stylesheet" href="<?= site_url('assets')?>/font/iconsmind-s/css/iconsminds.css" />
@@ -28,35 +28,31 @@
                             <div class="mb-2 text-center">
                                 <img src="<?= site_url('assets/logos/black.svg')?>" style="max-width: 125px;" alt="">
                             </div>
-                            <h6 class="mb-4">Login</h6>
-                            <form action="<?= site_url('login')?>" method="POST" >
+                            <h6 class="mb-4">Register</h6>
+                            <form action="<?= site_url('register')?>" method="POST">
                                 <label class="form-group has-float-label mb-4">
-                                    <input name="username" class="form-control" />
+                                    <input type="text" class="form-control" name="email" />
+                                    <span>E-mail</span>
+                                </label>
+
+                                <label class="form-group has-float-label mb-4">
+                                    <input type="text" class="form-control" name="username" />
                                     <span>Username</span>
                                 </label>
 
                                 <label class="form-group has-float-label mb-4">
-                                    <input name="password" class="form-control" type="password" placeholder="" />
+                                    <input type="text" class="form-control" name="name" />
+                                    <span>Name</span>
+                                </label>
+
+                                <label class="form-group has-float-label mb-4">
+                                    <input type="password" class="form-control" type="password" placeholder="" name="password" />
                                     <span>Password</span>
                                 </label>
-                                <?php
-                                    if($this->session->flashdata('succ_msg')){
-                                        echo '
-                                            <div class="alert alert-success rounded" role="alert">'.$this->session->flashdata('succ_msg').'</div>        
-                                        ';
-                                    }
-
-                                    if($this->session->flashdata('err_msg')){
-                                        echo '
-                                            <div class="alert alert-danger rounded" role="alert">'.$this->session->flashdata('err_msg').'</div>        
-                                        ';
-                                    }
-                                ?>
-                                
-                                <a href="<?= site_url('sign-up')?>">Register?</a>
+                                <a href="<?= site_url('')?>">Login?</a>
                                 <div class="">
                                     <!-- <a href="#">Forget password?</a> -->
-                                    <button type="submit" class="btn btn-primary btn-sm btn-shadow" style="float: right;">LOGIN</button>
+                                    <button type="submit" class="btn btn-primary btn-sm btn-shadow" style="float: right;">REGISTER</button>
                                 </div>
                             </form>
                         </div>

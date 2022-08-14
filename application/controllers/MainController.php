@@ -4,10 +4,13 @@ use GuzzleHttp\Client;
 class MainController extends CI_Controller{
     function __construct(){
         parent::__construct();
+        if(!$this->session->userdata('username')){
+            redirect('');
+        }
     }
     public function overview(){
         $client     = new GuzzleHttp\Client();
-        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/'.$this->session->userdata('username'));
 
         $userDatasets = json_decode($response->getBody());
         $data['hashtags'] = [];
@@ -36,7 +39,7 @@ class MainController extends CI_Controller{
     }
     public function topPost(){
         $client     = new GuzzleHttp\Client();
-        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/'.$this->session->userdata('username'));
 
         $userDatasets = json_decode($response->getBody());
         $data['hashtags'] = [];
@@ -61,7 +64,7 @@ class MainController extends CI_Controller{
     }
     public function influencer(){
         $client     = new GuzzleHttp\Client();
-        $response   = $client->get('http://127.0.0.1:5000/user-dataset/jajang');
+        $response   = $client->get('http://127.0.0.1:5000/user-dataset/'.$this->session->userdata('username'));
 
         $userDatasets = json_decode($response->getBody());
         $data['hashtags'] = [];
@@ -72,7 +75,7 @@ class MainController extends CI_Controller{
             $data['hashtags'][$index]['color']              = $userDataset->COLOR_UD;
             $index++;
 
-            $influencers  = $client->get('http://127.0.0.1:5000/influencer/jajang_'.$userDataset->HASHTAG_UD);
+            $influencers  = $client->get('http://127.0.0.1:5000/influencer/'.$this->session->userdata('username').'_'.$userDataset->HASHTAG_UD);
             $data['influencers'][$userDataset->HASHTAG_UD] = json_decode($influencers->getBody());
         }
 
@@ -89,7 +92,7 @@ class MainController extends CI_Controller{
         $client = new GuzzleHttp\Client();
         $response = $client->post('http://127.0.0.1:5000/user-setdataset', [
             'json' => [
-                'username'  => 'jajang',
+                'username'  => $this->session->userdata('username'),
                 'hashtag'   => $_POST['hashtag']
             ]
         ]);

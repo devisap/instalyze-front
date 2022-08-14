@@ -31,15 +31,14 @@
             <div class="user d-inline-block">
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <span class="name">Sarah Kortney</span>
+                    <span class="name"><?= $this->session->userdata('name')?></span>
                     <span>
                         <img alt="Profile Picture" src="<?= site_url('assets')?>/img/profiles/l-1.jpg" />
                     </span>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <a class="dropdown-item" href="#">Account</a>
-                    <a class="dropdown-item" href="#">Sign out</a>
+                    <a class="dropdown-item" href="<?= site_url('logout')?>">Sign out</a>
                 </div>
             </div>
         </div>
