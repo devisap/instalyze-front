@@ -65,7 +65,7 @@
                                     <div class="card-body">
                                         <h5>List Influencer</h5>
                                         <div style="text-align: center;" class="chart card-body px-0 mb-4">
-                                            <img src="http://127.0.0.1:5000/upload-graph/<?= $hashtag['graphInfluencer']?>.png" alt="">
+                                            <img src="http://127.0.0.1:5000/upload-graph/<?= $hashtag['idDataset']?>.png" alt="">
                                         </div>
                                         <table class="data-table tbl">
                                             <thead>

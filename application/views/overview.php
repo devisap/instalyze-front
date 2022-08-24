@@ -55,15 +55,16 @@
                             <div class="col-3">
                                 <div class="card">
                                     <div class="card-body">
-                                        <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: <?= $hashtag['color']?>;">#<?= $hashtag['tag']?></span>
+                                        <div>
+                                            <span style="padding: 0.6em 0.75em;font-size: 74%;color: #fff;border-radius: 0.25rem;background-color: <?= $hashtag['color']?>;">#<?= $hashtag['tag']?></span>
+                                            
+                                        </div>
                                         <br>
-                                        <div class="mt-4">
+                                        <div class="mt-2">
                                             <i class="iconsminds-clock"></i>
                                             <?= date_format(date_create($hashtag['created_at']), 'd.m.Y - H:i')?>
-                                        </div>
-                                        <div class="mt-2">
-                                            <i class="iconsminds-clock-forward"></i>
-                                            <?= date_format(date_create($hashtag['updated_at']), 'd.m.Y - H:i')?>
+                                            <br>
+                                            <button onclick="deleteDataset('<?= $hashtag['idDataset']?>')" class="btn btn-danger btn-xs mt-2"> Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -228,8 +229,31 @@
         </div>
     </div>
 </main>
+<div class="modal fade" id="mdlDelete" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlDeleteLabel">Delete Dataset</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <h6>Are you sure to delete this hashtag?</h6>
+            </div>
+            <div class="modal-footer">
+                <form action="<?= site_url('deldataset')?>" method="post">
+                    <input type="hidden" id="mdlDelete_id" name="idDataset">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button> 
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script> 
-    
+    function deleteDataset(idDataset){
+        $('#mdlDelete_id').val(idDataset)
+        $('#mdlDelete').modal('show')
+    }
     function hexToRgbABg(hex){
         var c;
         if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){

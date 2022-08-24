@@ -61,3 +61,4 @@ $route['overview']      = 'MainController/overview';
 $route['top-post']      = 'MainController/topPost';
 $route['influencer']    = 'MainController/influencer';
 $route['setdataset']    = 'MainController/setDataset';
+$route['deldataset']    = 'MainController/delDataset';
